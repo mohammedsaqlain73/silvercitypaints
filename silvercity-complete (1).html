@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<!-- ============================================================
+     SILVERCITY PAINTS & CONSTRUCTION SOLUTIONS
+     One website — all divisions
+     Owner  : Mohammed Karamat Alli
+     Phone  : 78150 49345 / 93489 86726
+     Address: Brahmana Jharilo, Cuttack, Odisha
+
+     HOW TO EDIT:
+     Search "CHANGE:" to jump to any editable section.
+     Products  → PRODUCTS array in <script> at bottom
+     Prices    → change the price: field in each product object
+     Phone     → search 917815049345 and replace
+     Garages   → GARAGES array in <script>
+     ============================================================ -->
+
+<title>Silvercity Paints &amp; Construction — Cuttack</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN TOKENS — Silvercity original palette, unchanged
+   ============================================================ */
+:root {
+  --bg:       #f0f1f3;
+  --white:    #ffffff;
+  --dark:     #111418;
+  --dark2:    #1c2028;
+  --mid:      #52575f;
+  --dim:      #9ea4ad;
+  --silver:   #c8cdd6;
+  --accent:   #e8b84b;   /* gold — original Silvercity accent */
+  --accent2:  #c9962a;
+  --accentbg: #fef8ec;
+  --green:    #1aad4b;   /* WhatsApp green */
+  --border:   #e2e5ea;
+  --border2:  #cdd0d6;
+  --shadow:   0 2px 8px  rgba(0,0,0,0.08);
+  --shadow2:  0 4px 16px rgba(0,0,0,0.13);
+  --nav-h:    58px;
+  --bot-h:    66px;
+
+  /* Division accent colours */
+  --div-auto:    #e8b84b;   /* gold   — Automotive */
+  --div-primer:  #e67e22;   /* orange — Primers    */
+  --div-sundry:  #27ae60;   /* green  — Sundries   */
+  --div-const:   #7CB518;   /* lime   — Construction */
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);padding-bottom:var(--bot-h)}
+::-webkit-scrollbar{display:none}
+img{display:block;width:100%}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:'Inter',sans-serif}
+
+/* ============================================================
+   TOP BAR
+   ============================================================ */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  height:var(--nav-h);background:var(--dark);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 14px;box-shadow:0 2px 12px rgba(0,0,0,0.4);
+}
+.logo{
+  font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;
+  letter-spacing:.08em;color:#fff;line-height:1;cursor:pointer;
+}
+.logo span{color:var(--accent)}
+/* CHANGE: subtitle */
+.logo-sub{font-size:9px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:2px}
+.top-right{display:flex;gap:8px;align-items:center}
+.lang-wrap{display:flex;border:1px solid rgba(255,255,255,.18);border-radius:4px;overflow:hidden}
+.lb{font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;padding:5px 10px;background:transparent;color:var(--silver);border:none;letter-spacing:.06em}
+.lb.on{background:var(--accent);color:var(--dark)}
+.wa-btn-top{width:36px;height:36px;background:var(--green);border-radius:4px;border:none;display:flex;align-items:center;justify-content:center}
+
+/* ============================================================
+   BOTTOM NAV
+   ============================================================ */
+.botbar{
+  position:fixed;bottom:0;left:0;right:0;z-index:300;
+  height:var(--bot-h);background:var(--white);
+  border-top:2px solid var(--border);display:flex;
+  box-shadow:0 -2px 12px rgba(0,0,0,0.08);
+}
+.bitem{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:3px;border:none;background:transparent;
+  padding:4px 0 0;border-top:3px solid transparent;transition:all .15s;
+}
+.bitem.on{border-top-color:var(--accent)}
+.bitem.on .bicon{color:var(--accent)}
+.bitem.on .blbl{color:var(--accent);font-weight:600}
+.bicon{font-size:22px;color:var(--dim);line-height:1}
+.blbl{font-family:'Oswald',sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+section{display:none;min-height:calc(100vh - var(--nav-h) - var(--bot-h));padding-top:var(--nav-h)}
+section.active{display:block}
+#home{padding-top:0}
+.px{padding-left:12px;padding-right:12px}
+.back-row{
+  display:flex;align-items:center;gap:8px;
+  padding:12px 14px;background:var(--white);
+  border-bottom:1px solid var(--border);cursor:pointer;
+}
+.back-row span{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mid)}
+.page-titlebar{background:var(--dark);padding:18px 14px 16px}
+.page-eyebrow{font-family:'Oswald',sans-serif;font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--silver);margin-bottom:3px}
+.page-bigtitle{font-family:'Oswald',sans-serif;font-size:32px;font-weight:700;letter-spacing:.04em;color:#fff;line-height:1}
+.page-bigtitle span{color:var(--accent)}
+.page-sub{font-size:12px;color:var(--dim);margin-top:5px}
+.sec-label{
+  font-family:'Oswald',sans-serif;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--mid);padding:18px 14px 10px;border-bottom:1px solid var(--border);
+}
+
+/* ============================================================
+   HOME — HERO
+   ============================================================ */
+.hero{position:relative;height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+/* CHANGE: swap the URL below for a real photo */
+.hero-img{
+  position:absolute;inset:0;
+  background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80');
+  background-size:cover;background-position:center;
+  filter:brightness(.3) saturate(.8);
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(17,20,24,.98) 0%,rgba(17,20,24,.5) 55%,transparent 100%);
+}
+.hero-content{position:relative;z-index:2;padding:0 16px 28px}
+.hero-badge{
+  display:inline-block;font-family:'Oswald',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
+  border:1px solid var(--accent);padding:4px 12px;border-radius:2px;margin-bottom:10px;
+}
+.hero-title{
+  font-family:'Oswald',sans-serif;font-size:clamp(46px,13vw,72px);font-weight:700;
+  line-height:.95;letter-spacing:-.01em;color:#fff;margin-bottom:14px;
+}
+.hero-title .accent{color:var(--accent)}
+.hero-desc{font-size:13px;color:rgba(255,255,255,.72);line-height:1.55;margin-bottom:20px;max-width:320px}
+.hero-actions{display:flex;gap:10px}
+.hero-btn-main{
+  flex:1;padding:14px;font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:var(--dark);
+  border:none;border-radius:4px;
+}
+.hero-btn-sec{
+  flex:1;padding:14px;font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;background:transparent;color:#fff;
+  border:2px solid rgba(255,255,255,.4);border-radius:4px;
+}
+
+/* Marquee */
+.marquee-strip{background:var(--accent);overflow:hidden;height:36px;display:flex;align-items:center}
+.marquee-inner{display:flex;white-space:nowrap;animation:marquee 30s linear infinite}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mi{font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--dark);padding:0 18px}
+.md{color:rgba(0,0,0,.3);font-size:10px}
+
+/* Stats */
+.stats-strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--dark2);padding:14px 0}
+.stat{display:flex;flex-direction:column;align-items:center;gap:2px;border-right:1px solid rgba(255,255,255,.08)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:var(--accent);letter-spacing:.02em}
+.stat-l{font-size:10px;color:var(--dim);letter-spacing:.06em;text-transform:uppercase}
+
+/* Feature cards */
+.feat-list{background:var(--white);border-bottom:1px solid var(--border)}
+.feat-card{display:flex;align-items:center;gap:14px;padding:14px;border-bottom:1px solid var(--border)}
+.feat-card:last-child{border-bottom:none}
+.feat-left{width:44px;height:44px;background:var(--accentbg);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.feat-title{font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;color:var(--dark);letter-spacing:.02em;margin-bottom:2px}
+.feat-sub{font-size:12px;color:var(--mid);line-height:1.4}
+
+/* Brands */
+.brands-row{display:flex;gap:8px;flex-wrap:wrap;padding:12px 14px;background:var(--white);border-bottom:1px solid var(--border)}
+.brand-card{font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:7px 14px;border-radius:3px;background:var(--bg);color:var(--dark);border:1.5px solid var(--border2)}
+
+/* Division banner cards on home */
+.div-banners{display:flex;flex-direction:column;gap:10px;padding:12px}
+.div-banner{
+  border-radius:8px;overflow:hidden;position:relative;
+  display:flex;align-items:flex-end;min-height:110px;
+  background:var(--dark2);box-shadow:var(--shadow2);cursor:pointer;
+}
+.div-banner-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.35}
+.div-banner-body{position:relative;z-index:2;padding:14px;flex:1}
+.div-tag{
+  display:inline-block;font-family:'Oswald',sans-serif;font-size:9px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;padding:2px 8px;border-radius:2px;
+  margin-bottom:5px;
+}
+.div-title{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:#fff;letter-spacing:.03em;line-height:1.1;margin-bottom:4px}
+.div-sub{font-size:11px;color:var(--silver);line-height:1.4}
+.div-arrow{
+  position:absolute;right:14px;bottom:14px;z-index:2;
+  width:34px;height:34px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--dark);font-weight:700;
+}
+
+/* Instagram strip */
+.ig-strip{
+  margin:0 12px 12px;border-radius:6px;overflow:hidden;
+  background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+  display:flex;align-items:center;gap:12px;padding:16px;cursor:pointer;
+}
+.ig-icon{font-size:26px}
+.ig-text-main{font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:#fff;letter-spacing:.04em}
+.ig-text-sub{font-size:11px;color:rgba(255,255,255,.85);margin-top:2px}
+.ig-arrow{font-size:28px;color:#fff;margin-left:auto;line-height:1}
+
+/* ============================================================
+   PRODUCTS PAGE
+   ============================================================ */
+.prod-tabs{
+  display:flex;overflow-x:auto;background:var(--white);
+  border-bottom:2px solid var(--border);
+  position:sticky;top:var(--nav-h);z-index:10;
+  -webkit-overflow-scrolling:touch;
+}
+.prod-tabs::-webkit-scrollbar{display:none}
+.ptab{
+  flex-shrink:0;padding:12px 14px;
+  font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--mid);background:transparent;border:none;
+  border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;
+}
+.ptab.on{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* Division filter row */
+.div-filter{
+  display:flex;overflow-x:auto;gap:6px;
+  padding:10px 12px;background:var(--bg);
+  border-bottom:1px solid var(--border);
+  -webkit-overflow-scrolling:touch;
+}
+.div-filter::-webkit-scrollbar{display:none}
+.dfbtn{
+  flex-shrink:0;padding:6px 14px;border-radius:20px;
+  font-family:'Oswald',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  background:var(--white);color:var(--mid);
+  border:1.5px solid var(--border2);white-space:nowrap;
+}
+.dfbtn.on{background:var(--dark);color:#fff;border-color:var(--dark)}
+
+.prod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:10px}
+.prod-card{background:var(--white);border-radius:8px;border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+
+/* IMAGE AREA — aspect-ratio 1:1 so it fills the card width
+   perfectly on every screen with zero cropping/stretching.
+   The image itself is object-fit:cover so it fills without distortion. */
+.prod-img{
+  position:relative;
+  width:100%;
+  aspect-ratio:1 / 1;   /* square — change to 4/3 for landscape */
+  overflow:hidden;
+  background:var(--dark2);
+  flex-shrink:0;
+}
+.prod-img img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;        /* fills box, crops edges if needed   */
+  object-position:center;  /* keeps subject centred              */
+  display:block;
+}
+.prod-img-placeholder{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;
+}
+.placeholder-text{font-family:'Oswald',sans-serif;font-size:10px;font-weight:500;letter-spacing:.06em;color:rgba(255,255,255,.45);text-transform:uppercase}
+.prod-cat-badge{
+  position:absolute;bottom:6px;left:6px;
+  font-family:'Oswald',sans-serif;font-size:9px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  background:rgba(0,0,0,.55);color:#fff;padding:2px 7px;border-radius:2px;
+}
+.prod-div-dot{
+  position:absolute;top:6px;right:6px;
+  width:10px;height:10px;border-radius:50%;border:1.5px solid rgba(255,255,255,.6);
+}
+.aspa-swatch-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.aspa-swatch-circle{width:54px;height:54px;border-radius:50%;border:3px solid rgba(255,255,255,.7);box-shadow:0 2px 12px rgba(0,0,0,.4)}
+.aspa-brand-label{font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.prod-body{padding:10px}
+.prod-name{font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;color:var(--dark);line-height:1.25;margin-bottom:3px;letter-spacing:.02em}
+.prod-unit{font-size:11px;color:var(--dim);margin-bottom:8px}
+.stk{display:inline-block;font-family:'Oswald',sans-serif;font-size:10px;font-weight:600;letter-spacing:.08em;padding:3px 8px;border-radius:3px;margin-bottom:8px}
+.stk.in{background:#e8f7ed;color:#1aad4b}
+.stk.lim{background:#fff4e5;color:#d46b00}
+.wa-prod{
+  width:100%;padding:9px;border-radius:4px;
+  font-family:'Oswald',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+  background:var(--green);color:#fff;border:none;
+  display:flex;align-items:center;justify-content:center;gap:5px;
+}
+
+/* ============================================================
+   GARAGES PAGE
+   ============================================================ */
+.gtab-row{display:flex;overflow-x:auto;background:var(--white);border-bottom:2px solid var(--border);position:sticky;top:var(--nav-h);z-index:10}
+.gtab-row::-webkit-scrollbar{display:none}
+.gtab{
+  flex-shrink:0;padding:12px 16px;
+  font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--mid);background:transparent;border:none;
+  border-bottom:3px solid transparent;margin-bottom:-2px;
+}
+.gtab.on{color:var(--accent);border-bottom-color:var(--accent)}
+.garage-list{padding:10px;display:flex;flex-direction:column;gap:10px}
+.garage-card{background:var(--white);border-radius:8px;border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow)}
+.garage-img-wrap{position:relative;height:180px;overflow:hidden}
+.garage-img-wrap img{height:180px;object-fit:cover;width:100%}
+.garage-partner-badge{
+  position:absolute;bottom:8px;left:8px;
+  font-family:'Oswald',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--accent);color:var(--dark);padding:3px 10px;border-radius:2px;
+}
+.garage-body{padding:12px}
+.garage-name{font-family:'Oswald',sans-serif;font-size:17px;font-weight:700;color:var(--dark);letter-spacing:.02em;margin-bottom:2px}
+.garage-type{font-size:12px;color:var(--mid);margin-bottom:6px}
+.stars{display:flex;gap:2px;margin-bottom:8px}
+.star{font-size:14px}.star.on{color:var(--accent)}.star.off{color:var(--border2)}
+.garage-meta{margin-bottom:8px;display:flex;flex-direction:column;gap:3px}
+.gmeta-row{font-size:12px;color:var(--mid)}
+.g-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.g-tag{font-family:'Oswald',sans-serif;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;background:var(--bg);border:1px solid var(--border2);border-radius:2px;color:var(--mid)}
+.garage-btns{display:flex;gap:8px}
+.g-btn{flex:1;padding:10px;border-radius:4px;font-family:'Oswald',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:none}
+.g-btn.call{background:var(--green);color:#fff}
+.g-btn.dir{background:var(--dark);color:#fff}
+
+/* ============================================================
+   ORDER PAGE
+   ============================================================ */
+.order-hero{background:linear-gradient(135deg,var(--dark) 0%,var(--dark2) 100%);padding:24px 14px 20px}
+.order-title{font-family:'Oswald',sans-serif;font-size:32px;font-weight:700;color:#fff;letter-spacing:.04em}
+.order-title span{color:var(--accent)}
+.order-sub{font-size:13px;color:var(--silver);line-height:1.5;margin-top:6px}
+.wa-order-big{
+  width:100%;padding:18px 14px;border-radius:6px;
+  font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;
+  background:var(--green);color:#fff;border:none;
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  box-shadow:0 4px 20px rgba(26,173,75,.35);
+}
+.call-cards{display:flex;flex-direction:column;gap:8px}
+.call-card{background:var(--white);border:1px solid var(--border);border-radius:6px;display:flex;overflow:hidden;box-shadow:var(--shadow);text-decoration:none}
+.call-card-left{width:52px;background:var(--dark);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.call-card-body{padding:13px 12px;flex:1}
+.call-num{font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;color:var(--dark);letter-spacing:.03em}
+.call-lbl{font-size:11px;color:var(--mid);margin-top:2px}
+.info-list{background:var(--white);border-radius:6px;border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow)}
+.info-row{display:flex;align-items:center;gap:12px;padding:14px;border-bottom:1px solid var(--border)}
+.info-row:last-child{border-bottom:none}
+.info-icon{width:36px;height:36px;background:var(--accentbg);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.info-text{font-size:13px;color:var(--mid);line-height:1.4}
+.info-text strong{color:var(--dark);font-weight:600;display:block;font-size:14px;margin-bottom:1px}
+
+/* ============================================================
+   CONTACT PAGE
+   ============================================================ */
+.contact-header{background:var(--dark);padding:20px 14px}
+.contact-header-title{font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:#fff;letter-spacing:.04em}
+.contact-header-sub{font-size:12px;color:var(--silver);margin-top:4px}
+.contact-grid{display:flex;flex-direction:column;gap:10px;padding:12px}
+.contact-card{background:var(--white);border-radius:6px;border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow)}
+.cc-header{background:var(--bg);padding:10px 14px;font-family:'Oswald',sans-serif;font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--mid);border-bottom:1px solid var(--border)}
+.cc-body{padding:14px}
+.cc-main{font-family:'Oswald',sans-serif;font-size:17px;font-weight:700;color:var(--dark);margin-bottom:4px}
+.cc-sub{font-size:12px;color:var(--mid);line-height:1.5}
+.call-link{display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg);border-radius:4px;margin-bottom:8px;text-decoration:none;border:1px solid var(--border)}
+.call-link:last-child{margin-bottom:0}
+.cl-icon{font-size:20px;width:36px;text-align:center}
+.cl-num{font-family:'Oswald',sans-serif;font-size:16px;font-weight:700;color:var(--dark)}
+.cl-lbl{font-size:11px;color:var(--mid);margin-top:1px}
+.map-btn{width:100%;padding:13px;border-radius:4px;font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--dark);color:#fff;border:none;display:flex;align-items:center;justify-content:center;gap:8px}
+.ig-btn-contact{width:100%;padding:13px;border-radius:4px;font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;letter-spacing:.06em;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;text-decoration:none}
+.hrow{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--border);font-size:13px}
+.hrow:last-child{border-bottom:none;padding-bottom:0}
+.hday{color:var(--mid)}
+.htime{font-weight:700;color:var(--dark);font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:.02em}
+.footer-bar{background:var(--dark);padding:16px 14px;text-align:center;margin-top:4px}
+.footer-bar-text{font-size:11px;color:var(--dim);line-height:1.7}
+
+/* Partner CTA inside products */
+.prod-cta{margin:12px;background:var(--dark);border-radius:8px;padding:20px;text-align:center;box-shadow:var(--shadow2)}
+.pcta-tag{font-family:'Oswald',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--silver);margin-bottom:6px}
+.pcta-title{font-family:'Oswald',sans-serif;font-size:26px;font-weight:700;color:#fff;margin-bottom:8px;letter-spacing:.03em}
+.pcta-sub{font-size:12px;color:var(--silver);margin-bottom:16px;line-height:1.6}
+.pcta-btns{display:flex;gap:8px}
+.pcta-wa{flex:1;padding:13px;border-radius:4px;background:var(--green);color:#fff;font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;letter-spacing:.07em;border:none}
+.pcta-ig{flex:1;padding:13px;border-radius:4px;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;letter-spacing:.07em;border:none;display:flex;align-items:center;justify-content:center}
+
+/* Toast */
+.toast{position:fixed;bottom:calc(var(--bot-h) + 12px);left:12px;right:12px;background:var(--dark);border-left:4px solid var(--accent);border-radius:4px;padding:13px 16px;font-size:14px;font-weight:500;color:#fff;z-index:999;opacity:0;transform:translateY(16px);transition:all .3s ease;pointer-events:none;box-shadow:var(--shadow2)}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast.err{border-left-color:#e74c3c}
+</style>
+</head>
+<body>
+
+<div class="toast" id="toast"></div>
+
+<!-- ============================================================
+     TOP BAR
+     CHANGE: logo text, logo-sub, WhatsApp number
+     ============================================================ -->
+<div class="topbar">
+  <div onclick="show('home')" style="cursor:pointer">
+    <div class="logo">SILVER<span>CITY</span></div>
+    <!-- CHANGE: subtitle line -->
+    <div class="logo-sub">Paints · Primers · Construction · Odisha</div>
+  </div>
+  <div class="top-right">
+    <div class="lang-wrap">
+      <button class="lb on" id="len" onclick="setLang('en')">EN</button>
+      <button class="lb" id="lod" onclick="setLang('od')">ଓଡ଼</button>
+    </div>
+    <!-- CHANGE: replace 917815049345 with your WhatsApp number -->
+    <button class="wa-btn-top" onclick="openWA()" title="WhatsApp">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.507 3.934 1.395 5.61L0 24l6.545-1.38A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.651-.502-5.177-1.378l-.371-.22-3.884.819.836-3.768-.242-.389A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    </button>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     HOME PAGE
+     ============================================================ -->
+<section id="home" class="active">
+
+  <div class="hero">
+    <div class="hero-img"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Cuttack · Odisha · Est. 2020</div>
+      <div class="hero-title">SILVER<span class="accent">CITY</span></div>
+      <p class="hero-desc" data-i18n="hsub">
+        Automotive paints, primers, sundries &amp; construction chemicals.
+        Same-day delivery to garages, workshops &amp; sites in Cuttack &amp; BBSR.
+      </p>
+      <div class="hero-actions">
+        <button class="hero-btn-main" onclick="show('products')">🎨 All Products</button>
+        <button class="hero-btn-sec"  onclick="openWA()">💬 WhatsApp</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scrolling marquee — all divisions -->
+  <div class="marquee-strip">
+    <div class="marquee-inner">
+      <span class="mi">ASPA / PPG</span><span class="md">◆</span>
+      <span class="mi">Dr. Fixit</span><span class="md">◆</span>
+      <span class="mi">Fosroc</span><span class="md">◆</span>
+      <span class="mi">Masking Tape</span><span class="md">◆</span>
+      <span class="mi">Paint Brushes</span><span class="md">◆</span>
+      <span class="mi">Sandpaper</span><span class="md">◆</span>
+      <span class="mi">Berger Paints</span><span class="md">◆</span>
+      <span class="mi">Same-Day Delivery</span><span class="md">◆</span>
+      <span class="mi">Wall Putty</span><span class="md">◆</span>
+      <span class="mi">Tile Adhesive</span><span class="md">◆</span>
+      <span class="mi">Epoxy Grout</span><span class="md">◆</span>
+      <span class="mi">100% Genuine</span><span class="md">◆</span>
+      <!-- duplicate -->
+      <span class="mi">ASPA / PPG</span><span class="md">◆</span>
+      <span class="mi">Dr. Fixit</span><span class="md">◆</span>
+      <span class="mi">Fosroc</span><span class="md">◆</span>
+      <span class="mi">Masking Tape</span><span class="md">◆</span>
+      <span class="mi">Paint Brushes</span><span class="md">◆</span>
+      <span class="mi">Sandpaper</span><span class="md">◆</span>
+      <span class="mi">Berger Paints</span><span class="md">◆</span>
+      <span class="mi">Same-Day Delivery</span><span class="md">◆</span>
+      <span class="mi">Wall Putty</span><span class="md">◆</span>
+      <span class="mi">Tile Adhesive</span><span class="md">◆</span>
+      <span class="mi">Epoxy Grout</span><span class="md">◆</span>
+      <span class="mi">100% Genuine</span><span class="md">◆</span>
+    </div>
+  </div>
+
+  <!-- Stats — CHANGE numbers -->
+  <div class="stats-strip">
+    <div class="stat"><div class="stat-n">55+</div><div class="stat-l">Products</div></div>
+    <div class="stat"><div class="stat-n">4hr</div><div class="stat-l">Delivery</div></div>
+    <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Genuine</div></div>
+    <div class="stat"><div class="stat-n">₹500</div><div class="stat-l">Min Order</div></div>
+  </div>
+
+  <!-- Division banners — tap to jump to products filtered by division -->
+  <div class="sec-label">Our Divisions</div>
+  <div class="div-banners">
+
+    <div class="div-banner" onclick="jumpDiv('Automotive')">
+      <div class="div-banner-bg" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=70')"></div>
+      <div class="div-banner-body">
+        <div class="div-tag" style="background:var(--div-auto);color:var(--dark)">Automotive</div>
+        <div class="div-title">Paints, Primers<br>&amp; Thinners</div>
+        <div class="div-sub">ASPA/PPG · Berger · Asian Paints · U-POL Fillers</div>
+      </div>
+      <div class="div-arrow" style="background:var(--div-auto)">›</div>
+    </div>
+
+    <div class="div-banner" onclick="jumpDiv('Sundries')">
+      <div class="div-banner-bg" style="background-image:url('https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=600&q=70')"></div>
+      <div class="div-banner-body">
+        <div class="div-tag" style="background:var(--div-sundry);color:#fff">Sundries</div>
+        <div class="div-title">Masking Tape,<br>Brushes &amp; Rollers</div>
+        <div class="div-sub">All sizes · Economy &amp; premium · Sandpaper by sheet or metre</div>
+      </div>
+      <div class="div-arrow" style="background:var(--div-sundry)">›</div>
+    </div>
+
+    <div class="div-banner" onclick="jumpDiv('Construction')">
+      <div class="div-banner-bg" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=70')"></div>
+      <div class="div-banner-body">
+        <div class="div-tag" style="background:var(--div-const);color:var(--dark)">Construction</div>
+        <div class="div-title">Waterproofing,<br>Adhesives &amp; More</div>
+        <div class="div-sub">Dr. Fixit · Fosroc · Cico · Wall Putty · Tile Grout</div>
+      </div>
+      <div class="div-arrow" style="background:var(--div-const)">›</div>
+    </div>
+
+  </div>
+
+  <!-- Why us -->
+  <div class="sec-label">Why choose us</div>
+  <div class="feat-list">
+    <div class="feat-card">
+      <div class="feat-left">⚡</div>
+      <div class="feat-body">
+        <div class="feat-title" data-i18n="f1t">Same-Day Delivery</div>
+        <div class="feat-sub"  data-i18n="f1s">Order by 10am, delivered by 3pm to your door</div>
+      </div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-left">✅</div>
+      <div class="feat-body">
+        <div class="feat-title" data-i18n="f2t">100% Genuine</div>
+        <div class="feat-sub"  data-i18n="f2s">Direct from authorised distributors — no fakes</div>
+      </div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-left">💬</div>
+      <div class="feat-body">
+        <div class="feat-title" data-i18n="f3t">WhatsApp Orders</div>
+        <div class="feat-sub"  data-i18n="f3s">Message anytime — 9348986726</div>
+      </div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-left">💰</div>
+      <div class="feat-body">
+        <div class="feat-title" data-i18n="f4t">Trade Pricing</div>
+        <div class="feat-sub"  data-i18n="f4s">Special rates for garages, contractors &amp; shops</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- All brands -->
+  <div class="sec-label">Brands in stock</div>
+  <div class="brands-row">
+    <div class="brand-card">ASPA / PPG</div>
+    <div class="brand-card">3M</div>
+    <div class="brand-card">U-POL</div>
+    <div class="brand-card">Berger</div>
+    <div class="brand-card">Asian Paints</div>
+    <div class="brand-card">Dr. Fixit</div>
+    <div class="brand-card">Fosroc</div>
+    <div class="brand-card">Cico</div>
+    <div class="brand-card">Pidilite</div>
+    <div class="brand-card">Norton</div>
+    <div class="brand-card">Kangaro</div>
+    <div class="brand-card">Kana Brushes</div>
+  </div>
+
+  <!-- Instagram -->
+  <div class="ig-strip" onclick="window.open('https://instagram.com/silvercitypaints','_blank')">
+    <div class="ig-icon">📸</div>
+    <div>
+      <div class="ig-text-main">Follow on Instagram</div>
+      <!-- CHANGE: Instagram handle -->
+      <div class="ig-text-sub">@silvercitypaintsandsupply</div>
+    </div>
+    <div class="ig-arrow">›</div>
+  </div>
+
+</section>
+
+
+<!-- ============================================================
+     PRODUCTS PAGE
+     Category tabs + division filter — all auto-built by JS
+     ============================================================ -->
+<section id="products">
+  <div class="page-titlebar">
+    <div class="page-eyebrow">Silvercity — All Divisions</div>
+    <div class="page-bigtitle">PRODUCT <span>CATALOGUE</span></div>
+    <div class="page-sub">WhatsApp or call for live pricing — 78150 49345</div>
+  </div>
+  <div class="back-row" onclick="show('home')">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Back to Home</span>
+  </div>
+  <!-- Division quick-filter pills -->
+  <div class="div-filter" id="divFilter"></div>
+  <!-- Category tabs -->
+  <div class="prod-tabs" id="prodTabs"></div>
+  <!-- Grid -->
+  <div class="prod-grid" id="prodGrid"></div>
+  <!-- Partner CTA -->
+  <div class="prod-cta">
+    <div class="pcta-tag">For Garages, Contractors &amp; Shops</div>
+    <div class="pcta-title">Bulk &amp; Repeat<br>Orders Welcome</div>
+    <div class="pcta-sub">Special rates and credit terms for regular trade customers across all our divisions.</div>
+    <div class="pcta-btns">
+      <button class="pcta-wa" onclick="openWA('partner')">💬 Partner With Us</button>
+      <a class="pcta-ig" href="https://instagram.com/silvercitypaints" target="_blank">📸 Follow Us</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     GARAGES PAGE
+     ============================================================ -->
+<section id="garages">
+  <div class="page-titlebar">
+    <div class="page-eyebrow">Partner Network</div>
+    <div class="page-bigtitle">PARTNER <span>GARAGES</span></div>
+    <div class="page-sub">Recommended auto body shops in Cuttack &amp; BBSR</div>
+  </div>
+  <div class="back-row" onclick="show('home')">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Back to Home</span>
+  </div>
+  <div class="gtab-row" id="garageTabs"></div>
+  <div class="garage-list" id="garageList"></div>
+</section>
+
+
+<!-- ============================================================
+     ORDER PAGE
+     ============================================================ -->
+<section id="order">
+  <div class="order-hero">
+    <div class="order-title">ORDER <span>NOW</span></div>
+    <div class="order-sub">WhatsApp us your requirements — we confirm in 30 min &amp; deliver same day.</div>
+  </div>
+  <div class="back-row" onclick="show('home')">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Back to Home</span>
+  </div>
+  <div class="px" style="padding-top:14px;display:flex;flex-direction:column;gap:12px;padding-bottom:16px">
+    <!-- CHANGE: replace 917815049345 -->
+    <button class="wa-order-big" onclick="openWA()">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.507 3.934 1.395 5.61L0 24l6.545-1.38A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.651-.502-5.177-1.378l-.371-.22-3.884.819.836-3.768-.242-.389A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      WhatsApp — 93489 86726
+    </button>
+    <div class="call-cards">
+      <!-- CHANGE: phone numbers -->
+      <a class="call-card" href="tel:+916370447609">
+        <div class="call-card-left">📞</div>
+        <div class="call-card-body">
+          <div class="call-num">63704 47609</div>
+          <div class="call-lbl">Mohammed Karamat Alli · Tap to call</div>
+        </div>
+      </a>
+      <a class="call-card" href="tel:+919348986726">
+        <div class="call-card-left">📞</div>
+        <div class="call-card-body">
+          <div class="call-num">93489 86726</div>
+          <div class="call-lbl">Tap to call directly</div>
+        </div>
+      </a>
+    </div>
+    <div class="info-list">
+      <div class="info-row">
+        <div class="info-icon">⚡</div>
+        <div class="info-text"><strong>Same-Day Delivery</strong>Order by 11am → delivered by 3pm</div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">📍</div>
+        <div class="info-text"><strong>Coverage Area</strong>Cuttack, Bhubaneswar &amp; within 30 km</div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">💵</div>
+        <div class="info-text"><strong>Payment</strong>Cash on delivery · Min order ₹500</div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">📦</div>
+        <div class="info-text"><strong>Bulk Orders</strong>Special pricing for orders above ₹5,000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CONTACT PAGE
+     ============================================================ -->
+<section id="contact">
+  <div class="contact-header">
+    <div class="contact-header-title">CONTACT US</div>
+    <!-- CHANGE: address -->
+    <div class="contact-header-sub">Brahmana Jharilo, Cuttack, Odisha — 754001</div>
+  </div>
+  <div class="back-row" onclick="show('home')">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Back to Home</span>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="cc-header">📞 Call Us</div>
+      <div class="cc-body">
+        <!-- CHANGE: numbers -->
+        <a class="call-link" href="tel:+916370447609">
+          <div class="cl-icon">📞</div>
+          <div><div class="cl-num">+91 63704 47609 </div><div class="cl-lbl">Mohammed Karamat Alli (Owner)</div></div>
+        </a>
+        <a class="call-link" href="tel:+919348986726">
+          <div class="cl-icon">📞</div>
+          <div><div class="cl-num">+91 93489 86726</div><div class="cl-lbl">Tap to call directly</div></div>
+        </a>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="cc-header">📍 Our Location</div>
+      <div class="cc-body">
+        <div class="cc-main">Brahmana Jharilo, Cuttack</div>
+        <!-- CHANGE: full address -->
+        <div class="cc-sub" style="margin-bottom:14px">Odisha — 754200 · Near main road, ground floor</div>
+        <!-- CHANGE: replace GPS link with your exact coordinates -->
+        <button class="map-btn" onclick="window.open('https://maps.google.com/?q=Brahmana+Jharilo+silvercitypaints+stxavier+Cuttack+Odisha')">
+          📍 Open in Google Maps
+        </button>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="cc-header">📸 Instagram</div>
+      <div class="cc-body">
+        <!-- CHANGE: Instagram handle -->
+        <a class="ig-btn-contact" href="https://instagram.com/silvercitypaints" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white" stroke="none"/></svg>
+          @silvercitypaintsandsupply
+        </a>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="cc-header">🕐 Business Hours</div>
+      <div class="cc-body">
+        <!-- CHANGE: timings -->
+        <div class="hrow"><span class="hday">Monday – Saturday</span><span class="htime">8am – 7pm</span></div>
+        <div class="hrow"><span class="hday">Sunday</span><span class="htime">9am – 2pm</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <div class="footer-bar-text">
+      © 2026 Silvercity Paints &amp; Construction Solutions<br>
+      Brahmana Jharilo, Cuttack, Odisha — 754001<br>
+      Prop: Mohammed Karamat Alli · silvercitypaintsandsupply@gmail.com
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     BOTTOM NAVIGATION
+     ============================================================ -->
+<nav class="botbar">
+  <button class="bitem on" id="bnav-home"     onclick="show('home')">
+    <span class="bicon">🏠</span><span class="blbl">Home</span>
+  </button>
+  <button class="bitem" id="bnav-products"    onclick="show('products')">
+    <span class="bicon">🎨</span><span class="blbl">Products</span>
+  </button>
+  <button class="bitem" id="bnav-garages"     onclick="show('garages')">
+    <span class="bicon">🔧</span><span class="blbl">Garages</span>
+  </button>
+  <button class="bitem" id="bnav-order"       onclick="show('order')">
+    <span class="bicon">📦</span><span class="blbl">Order</span>
+  </button>
+  <button class="bitem" id="bnav-contact"     onclick="show('contact')">
+    <span class="bicon">📞</span><span class="blbl">Contact</span>
+  </button>
+</nav>
+
+
+<!-- ============================================================
+     ALL JAVASCRIPT — inline, no external files needed
+     ============================================================ -->
+<script>
+
+/* ── NAVIGATION ── */
+function show(id){
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.bitem').forEach(b=>b.classList.remove('on'));
+  const btn=document.getElementById('bnav-'+id);
+  if(btn) btn.classList.add('on');
+  window.scrollTo(0,0);
+}
+
+/* Jump from Home division banner → Products filtered by division */
+function jumpDiv(div){
+  show('products');
+  setTimeout(()=>{ activeDivision=div; activeProdCat='All'; renderProducts(); },50);
+}
+
+/* ── WHATSAPP ──
+   CHANGE: replace 917815049345 with country code + your number */
+function openWA(type){
+  const msg = type==='partner'
+    ? 'Hello Silvercity! I want to discuss bulk/trade pricing. Please contact me.'
+    : 'Hello Silvercity! I want to place an order. Please help me.';
+  window.open('https://wa.me/919348986726?text='+encodeURIComponent(msg),'_blank');
+}
+
+/* ── TOAST ── */
+function showToast(msg,isError){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.className='toast'+(isError?' err':'')+' show';
+  setTimeout(()=>t.classList.remove('show'),4000);
+}
+
+/* ── LANGUAGE ── */
+const T={
+  en:{
+    hsub:'Automotive paints, primers, sundries & construction chemicals. Same-day delivery to garages, workshops & sites in Cuttack & BBSR.',
+    f1t:'Same-Day Delivery', f1s:'Order by 11am, delivered by 3pm to your door',
+    f2t:'100% Genuine',      f2s:'Direct from authorised distributors — no fakes',
+    f3t:'WhatsApp Orders',   f3s:'Message anytime — 9348986726',
+    f4t:'Trade Pricing',     f4s:'Special rates for garages, contractors & shops',
+  },
+  od:{
+    hsub:'ଖାଣ୍ଟି ପେଣ୍ଟ, ପ୍ରାଇମର ଓ ନିର୍ମାଣ ସାମଗ୍ରୀ। କଟକ ଓ ଭୁବନେଶ୍ୱରରେ ସେହିଦିନ ଡ଼େଲିଭରି।',
+    f1t:'ସେହିଦିନ ଡ଼େଲିଭରି', f1s:'ସକାଳ ୧୧ ଭିତରେ ଅର୍ଡ ର — ଅପରାହ୍ନ ୩ ଭିତରେ ଘରକୁ',
+    f2t:'ଖାଣ୍ଟି ମାଲ',       f2s:'ଅଧିକୃତ ଡ ି ଷ ୍ ଟ ୍ ର ି ବ ୍ ୟ ୁ ଟ ର ଠ ାର ୁ',
+    f3t:'ୱ ାଟ ୍ ସ ଆ ପ',     f3s:'ଯ େ କ ୌ ଣ ସ ି ସ ମ ୟ — ୭ ୮ ୧ ୫ ୦ ୪ ୯ ୩ ୪ ୫',
+    f4t:'ଉ ଚ ି ତ ଦ ାମ',     f4s:'ଗ ୍ ୟ ାର େ ଜ ଓ ଠ େ କ ାଦ ାର ଙ ୍ କ ପ ାଇ ଁ ସ ୍ ପ େ ଶ ାଲ ଦ ାମ',
+  }
+};
+let currentLang='en';
+function setLang(lang){
+  currentLang=lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n');
+    if(T[lang][k]) el.textContent=T[lang][k];
+  });
+  document.getElementById('len').classList.toggle('on',lang==='en');
+  document.getElementById('lod').classList.toggle('on',lang==='od');
+  if(typeof renderProducts==='function') renderProducts();
+  if(typeof renderGarages==='function')  renderGarages();
+}
+
+/* ══════════════════════════════════════════════════════════
+   PRODUCTS
+   ══════════════════════════════════════════════════════════
+
+   DIVISIONS: 'Automotive' | 'Sundries' | 'Construction'
+
+   HOW TO ADD A PRODUCT:
+   Copy any object, paste below it, change values.
+   d  = division  ('Automotive' | 'Sundries' | 'Construction')
+   c  = category  (shown in tabs)
+   n  = name
+   u  = unit
+   s  = stock: 'in' = In Stock | 'lim' = Limited
+   col= (ASPA paints only) hex colour swatch
+   img= (optional) path to photo  e.g. 'images/nc-thinner.jpg'
+
+   HOW TO CHANGE A PRICE: products don't show price by default —
+   add price:'₹280' to any object if you want to show it.
+   ══════════════════════════════════════════════════════════ */
+
+/* Category background colours (shown when no photo is added) */
+const catBg={
+  'Thinners':           '#1a3a5c',
+  'Hardeners':          '#5c1a1a',
+  'Primers':            '#1a3a2a',
+  'Body Fillers':       '#3a2a1a',
+  'ASPA Paints':        '#1a1a4a',
+  'Masking Tape':       '#2a3a1a',
+  'Paint Brushes':      '#1a2a3a',
+  'Paint Rollers':      '#2a1a3a',
+  'Sandpaper':          '#3a3a1a',
+  'Other Consumables':  '#1a3a3a',
+  'Waterproofing':      '#0d3b5e',
+  'Tile Adhesives':     '#4a1942',
+  'Grouts':             '#1a3a2a',
+  'Wall Putty':         '#3d2b1a',
+  'Plaster':            '#2a2e35',
+  'Admixtures':         '#3b1a00',
+};
+
+const PRODUCTS=[
+
+  /* ══════════════════════
+     AUTOMOTIVE DIVISION
+  ══════════════════════ */
+
+  /* Thinners */
+  {d:'Automotive',c:'Thinners',    n:'NC Thinner',          u:'Per litre',  s:'in'   ,img:'images/nc-thinner.jpg' },
+  {d:'Automotive',c:'Thinners',    n:'PU Thinner',          u:'Per litre',  s:'in'   ,img:'images/pu-thinner.jpg'  },
+  {d:'Automotive',c:'Thinners',    n:'Epoxy Thinner',       u:'Per litre',  s:'in'   ,img:'images/epoxy-thinner.jpg' },
+
+  /* Hardeners */
+  {d:'Automotive',c:'Hardeners',   n:'PU Hardener MS Grade',u:'Per litre',  s:'in'   ,img:'images/pu-hardener.jpg'  },
+  {d:'Automotive',c:'Hardeners',   n:'Epoxy Primer Hardener',u:'Per litre', s:'lim' ,img:'images/epoxy-hardener.jpeg' },
+
+  /* Primers */
+  {d:'Automotive',c:'Primers',     n:'2K Epoxy Primer (Grey)',  u:'Per litre',s:'in' ,img:'images/2k-epoxy-primer.jpg' },
+  {d:'Automotive',c:'Primers',     n:'1K Surfacer Primer',      u:'Per litre',s:'in' ,img:'images/1k-surfacer-primer.jpeg' },
+  {d:'Automotive',c:'Primers',     n:'Red Oxide Metal Primer',  u:'Per litre',s:'in'   ,img:'images/red-oxide-primer.png'},
+  {d:'Automotive',c:'Primers',     n:'Wash / Etch Primer',      u:'Per litre',s:'in'   ,img:'images/wash-primer.jpg' },
+  {d:'Automotive',c:'Primers',     n:'High-Build Primer Filler',u:'Per litre',s:'lim'  ,img:'images/highbuild-primer.jpg'  },
+  {d:'Automotive',c:'Primers',     n:'Zinc Phosphate Primer',   u:'Per litre',s:'in'   ,img:'images/zinc-phosphate.jpg' },
+
+  /* Body Fillers */
+  {d:'Automotive',c:'Body Fillers',n:'Carpatch Body Filler',    u:'Per kg',   s:'in'   ,img:'images/carpatch-filler.jpg'  },
+  {d:'Automotive',c:'Body Fillers',n:'U-POL Dolphin Filler',    u:'Per kg',   s:'lim'  ,img:'images/upol-dolphin.jpg'  },
+  {d:'Automotive',c:'Body Fillers',n:'Spot Putty / Glazing',    u:'Per tube', s:'in'  ,img:'images/spot-putty.jpg' },
+
+  /* ASPA Paints */
+  {d:'Automotive',c:'ASPA Paints', n:'ASPA White',    u:'Per litre',s:'in', col:'#f5f5f5'  ,img:'images/aspa.jpg'  },
+  {d:'Automotive',c:'ASPA Paints', n:'ASPA Black',    u:'Per litre',s:'in', col:'#1a1a1a'  ,img:'images/aspa.jpg'  },
+  {d:'Automotive',c:'ASPA Paints', n:'ASPA Silver Grey',u:'Per litre',s:'in',col:'#8a9ab0'  ,img:'images/aspa.jpg'  },
+  {d:'Automotive',c:'ASPA Paints', n:'ASPA Red',      u:'Per litre',s:'in', col:'#c0281e' ,img:'images/aspa.jpg' },
+  {d:'Automotive',c:'ASPA Paints', n:'ASPA Blue',     u:'Per litre',s:'in', col:'#1a3a7a' ,img:'images/aspa.jpg' },
+  {d:'Automotive',c:'ASPA Paints', n:'ASPA Yellow',   u:'Per litre',s:'lim',col:'#d4a017'  ,img:'images/aspa.jpg'  },
+  {d:'Automotive',c:'ASPA Paints', n:'ASPA Clear Coat',u:'Per litre',s:'in',col:'rgba(200,210,230,0.5)'  ,img:'images/aspa.jpg' },
+
+  /* ══════════════════════
+     SUNDRIES DIVISION
+     Masking tape, brushes, rollers, sandpaper
+  ══════════════════════ */
+
+  /* Masking Tape */
+  {d:'Sundries',c:'Masking Tape',  n:'Economy Masking Tape 1" (24mm)',  u:'Per roll (40m)',s:'in'   ,img:'images/tape.jpg' },
+  {d:'Sundries',c:'Masking Tape',  n:'Economy Masking Tape 1.5" (36mm)',u:'Per roll (40m)',s:'in'   ,img:'images/tape.jpg' },
+  {d:'Sundries',c:'Masking Tape',  n:'Economy Masking Tape 2" (48mm)',  u:'Per roll (40m)',s:'in'   ,img:'images/tape.jpg' },
+  {d:'Sundries',c:'Masking Tape',  n:'Economy Masking Tape 3" (72mm)',  u:'Per roll (40m)',s:'in'   ,img:'images/tape.jpg' },
+  {d:'Sundries',c:'Masking Tape',  n:'Premium Masking Tape 1" (24mm)',  u:'Per roll (50m)',s:'in'  ,img:'images/tape.jpg' },
+  {d:'Sundries',c:'Masking Tape',  n:'Premium Masking Tape 2" (48mm)',  u:'Per roll (50m)',s:'in'   ,img:'images/tape.jpg' },
+  {d:'Sundries',c:'Masking Tape',  n:'Transparent Cello Tape 2"',       u:'Per roll',      s:'in'  ,img:'images/coming-soon.jpg'  },
+
+  /* Paint Brushes */
+  {d:'Sundries',c:'Paint Brushes', n:'Economy Flat Brush 1"',   u:'Per piece',s:'in'  ,img:'images/brush.jpg'  },
+  {d:'Sundries',c:'Paint Brushes', n:'Economy Flat Brush 1.5"', u:'Per piece',s:'in'  ,img:'images/brush.jpg'  },
+  {d:'Sundries',c:'Paint Brushes', n:'Economy Flat Brush 2"',   u:'Per piece',s:'in'  ,img:'images/brush.jpg' },
+  {d:'Sundries',c:'Paint Brushes', n:'Economy Flat Brush 3"',   u:'Per piece',s:'in'  ,img:'images/brush.jpg' },
+  {d:'Sundries',c:'Paint Brushes', n:'Economy Flat Brush 4"',   u:'Per piece',s:'in'  ,img:'images/brush.jpg'},
+  {d:'Sundries',c:'Paint Brushes', n:'Mid-Range Brush 2" (Mixed Bristle)',u:'Per piece',s:'in'  ,img:'images/brush.jpg' },
+  {d:'Sundries',c:'Paint Brushes', n:'Mid-Range Brush 3"',      u:'Per piece',s:'in'  ,img:'images/brush.jpg'  },
+  {d:'Sundries',c:'Paint Brushes', n:'Mid-Range Brush 4"',      u:'Per piece',s:'in'   ,img:'images/brush.jpg' },
+  {d:'Sundries',c:'Paint Brushes', n:'Round Distemper Brush',   u:'Per piece',s:'in'   ,img:'images/brush.jpg' },
+  {d:'Sundries',c:'Paint Brushes', n:'Wall / Whitewash Brush 6"',u:'Per piece',s:'in'  ,img:'images/brush.jpg' },
+
+  /* Paint Rollers */
+  {d:'Sundries',c:'Paint Rollers', n:'9" Nap Roller (smooth wall)',  u:'Per piece',s:'in'  ,img:'images/roller.jpg'},
+  {d:'Sundries',c:'Paint Rollers', n:'7" Nap Roller (medium)',       u:'Per piece',s:'in'  ,img:'images/roller.jpg'  },
+  {d:'Sundries',c:'Paint Rollers', n:'4" Mini Roller (trim & edges)',u:'Per piece',s:'in'   ,img:'images/coming-soon.jpg' },
+  {d:'Sundries',c:'Paint Rollers', n:'Roller Tray (plastic)',        u:'Per piece',s:'in'  ,img:'images/coming-soon.jpg'  },
+  {d:'Sundries',c:'Paint Rollers', n:'Extension Pole for Rollers',   u:'Per piece',s:'in'  ,img:'images/roller.jpg'  },
+
+  /* Sandpaper */
+  {d:'Sundries',c:'Sandpaper',     n:'Emery Sheet 80 Grit (Coarse)',  u:'Per sheet',  s:'in'   ,img:'images/sand.jpg'  },
+  {d:'Sundries',c:'Sandpaper',     n:'Emery Sheet 120 Grit (Medium)', u:'Per sheet',  s:'in'   ,img:'images/sand.jpg'  },
+  {d:'Sundries',c:'Sandpaper',     n:'Emery Sheet 180 Grit (Fine)',   u:'Per sheet',  s:'in'  ,img:'images/sand.jpg' },
+  {d:'Sundries',c:'Sandpaper',     n:'Emery Sheet 240 Grit (V Fine)', u:'Per sheet',  s:'in'  ,img:'images/sand.jpg'  },
+  {d:'Sundries',c:'Sandpaper',     n:'Wet & Dry Sheet 400 Grit',      u:'Per sheet',  s:'in'   ,img:'images/sand.jpg'  },
+  {d:'Sundries',c:'Sandpaper',     n:'Emery Roll 2" (sold by metre)', u:'Per metre',  s:'in'  ,img:'images/coming-soon.jpg' },
+
+  /* Other Consumables */
+  {d:'Sundries',c:'Other Consumables',n:'Paint Mixing Cups',          u:'Per piece',  s:'in'   ,img:'images/coming-soon.jpg'},
+  {d:'Sundries',c:'Other Consumables',n:'Paint Strainer / Filter',    u:'Per piece',  s:'in'  ,img:'images/coming-soon.jpg '},
+  {d:'Sundries',c:'Other Consumables',n:'Spray Gun Brush Set',        u:'Per set',    s:'in'   ,img:'images/coming-soon.jpg'  },
+  {d:'Sundries',c:'Other Consumables',n:'Drop Sheet / Dust Cover 4×3m',u:'Per piece', s:'in'   ,img:'images/coming-soon.jpg'  },
+  {d:'Sundries',c:'Other Consumables',n:'Painter\'s Tape Dispenser',  u:'Per piece',  s:'in'   ,img:'images/coming-soon.jpg'  },
+
+  /* ══════════════════════
+     CONSTRUCTION DIVISION
+  ══════════════════════ */
+
+  /* Waterproofing */
+  {d:'Construction',c:'Waterproofing',n:'Dr. Fixit LW+ Liquid Waterproofing',    u:'5 Litre',  s:'in'   ,img:'images/dr-fixit.jpg'  },
+  {d:'Construction',c:'Waterproofing',n:'Fosroc Brushbond PU Waterproofing',     u:'1 Kg',     s:'in'   ,img:'images/coming-soon.jpg'  },
+  {d:'Construction',c:'Waterproofing',n:'Cico Tapecrete Crystalline WP',         u:'1 Kg',     s:'in'   ,img:'images/coming-soon.jpg'  },
+  {d:'Construction',c:'Waterproofing',n:'Integral Waterproofing Compound (Liq)', u:'1 Litre',  s:'in'  ,img:'images/coming-soon.jpg'  },
+
+  /* Tile Adhesives */
+  {d:'Construction',c:'Tile Adhesives',n:'Tile Adhesive — Grey',                 u:'20 Kg Bag',s:'in'   ,img:'images/coming-soon.jpg'  },
+  {d:'Construction',c:'Tile Adhesives',n:'Tile Adhesive — White',                u:'20 Kg Bag',s:'in'   ,img:'images/coming-soon.jpg'  },
+
+  /* Grouts */
+  {d:'Construction',c:'Grouts',       n:'Epoxy Tile Grout (Assorted Colours)',   u:'1 Kg',     s:'in'   ,img:'images/coming-soon.jpg'  },
+
+  /* Wall Putty */
+  {d:'Construction',c:'Wall Putty',   n:'Wall Putty — White Cement Based',       u:'40 Kg Bag',s:'in'   ,img:'images/coming-soon.jpg'  },
+
+  /* Plaster */
+  {d:'Construction',c:'Plaster',      n:'Ready Mix Plaster',                     u:'25 Kg Bag',s:'in'  ,img:'images/coming-soon.jpg'  },
+
+  /* Admixtures */
+  {d:'Construction',c:'Admixtures',   n:'Concrete Plasticizer (Naphthalene)',    u:'5 Litre',  s:'in'  ,img:'images/coming-soon.jpg' },
+  {d:'Construction',c:'Admixtures',   n:'Epoxy Zinc Rich Primer (Industrial)',   u:'Per litre',s:'in'   ,img:'images/coming-soon.jpg' },
+
+];
+
+
+/* ── PRODUCT RENDERER ── */
+let activeDivision = 'All';
+let activeProdCat  = 'All';
+
+function buildProductImage(p){
+  const bg = catBg[p.c] || '#2a2d35';
+
+  /* ASPA paint with photo */
+  if(p.c==='ASPA Paints' && p.img){
+    return `<div class="prod-img"><img src="${p.img}" alt="${p.n}" loading="lazy"
+      onerror="this.parentElement.style.background='${bg}'">
+      <div class="aspa-swatch-overlay" style="background:rgba(0,0,0,.15)">
+        <div class="aspa-swatch-circle" style="background:${p.col||'#888'}"></div>
+        <div class="aspa-brand-label">PPG ASPA</div>
+      </div>
+      <div class="prod-cat-badge">${p.c}</div></div>`;
+  }
+  /* ASPA paint no photo — swatch only */
+  if(p.c==='ASPA Paints' && p.col){
+    return `<div class="prod-img" style="background:linear-gradient(160deg,#d0d4da 0%,${p.col} 100%)">
+      <div class="aspa-swatch-overlay">
+        <div class="aspa-swatch-circle" style="background:${p.col}"></div>
+        <div class="aspa-brand-label">PPG ASPA</div>
+      </div>
+      <div class="prod-cat-badge">${p.c}</div></div>`;
+  }
+  /* product with photo */
+  if(p.img){
+    return `<div class="prod-img"><img src="${p.img}" alt="${p.n}" loading="lazy"
+      onerror="this.parentElement.style.background='${bg}'">
+      <div class="prod-cat-badge">${p.c}</div></div>`;
+  }
+  /* placeholder */
+  const divColour = p.d==='Automotive'?'#e8b84b': p.d==='Sundries'?'#27ae60':'#7CB518';
+  return `<div class="prod-img" style="background:${bg}">
+    <div class="prod-img-placeholder">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+        <circle cx="12" cy="13" r="4"/>
+      </svg>
+      <div class="placeholder-text">Photo coming soon</div>
+    </div>
+    <div class="prod-cat-badge">${p.c}</div>
+    <div class="prod-div-dot" style="background:${divColour}"></div>
+  </div>`;
+}
+
+function renderProducts(){
+  /* Division filter pills */
+  const divs=['All','Automotive','Sundries','Construction'];
+  document.getElementById('divFilter').innerHTML = divs.map(d=>{
+    const labels={All:'🎨 All',Automotive:'🚗 Automotive',Sundries:'🖌️ Sundries',Construction:'🏗️ Construction'};
+    return `<button class="dfbtn${d===activeDivision?' on':''}" onclick="setDiv('${d}')">${labels[d]||d}</button>`;
+  }).join('');
+
+  /* Filter by division */
+  let list = activeDivision==='All' ? PRODUCTS : PRODUCTS.filter(p=>p.d===activeDivision);
+
+  /* Category tabs from filtered list */
+  const cats = ['All',...new Set(list.map(p=>p.c))];
+  document.getElementById('prodTabs').innerHTML = cats.map(cat=>{
+    const label = cat==='All' ? (currentLang==='od'?'ସବ':'All') : cat;
+    return `<button class="ptab${cat===activeProdCat?' on':''}" onclick="setCat('${cat}')">${label}</button>`;
+  }).join('');
+
+  /* Filter by category */
+  if(activeProdCat!=='All') list = list.filter(p=>p.c===activeProdCat);
+
+  document.getElementById('prodGrid').innerHTML = list.map(p=>`
+    <div class="prod-card">
+      ${buildProductImage(p)}
+      <div class="prod-body">
+        <div class="prod-name">${p.n}</div>
+        <div class="prod-unit">${p.u}</div>
+        <div class="stk ${p.s==='in'?'in':'lim'}">${p.s==='in'?'In Stock':'Limited'}</div>
+        <button class="wa-prod" onclick="orderWA('${p.n.replace(/'/g,"\\'")}','${p.u}')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.507 3.934 1.395 5.61L0 24l6.545-1.38A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.651-.502-5.177-1.378l-.371-.22-3.884.819.836-3.768-.242-.389A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Order via WhatsApp
+        </button>
+      </div>
+    </div>`).join('');
+}
+
+function setDiv(d){ activeDivision=d; activeProdCat='All'; renderProducts(); }
+function setCat(c){ activeProdCat=c; renderProducts(); }
+
+function orderWA(name,unit){
+  const msg=`Hi Silvercity! I want to order: ${name} (${unit}). Please confirm availability, price and delivery.`;
+  window.open('https://wa.me/919348986726?text='+encodeURIComponent(msg),'_blank');
+}
+
+renderProducts();
+
+
+/* ══════════════════════════════════════════════════════════
+   GARAGES
+   ══════════════════════════════════════════════════════════
+
+   HOW TO ADD A GARAGE: Copy one object, paste, change values.
+   HOW TO ADD A PHOTO:  img: 'images/garage-name.jpg'
+   HOW TO CHANGE PHONE: Update ph field.
+   ══════════════════════════════════════════════════════════ */
+
+const GARAGES=[
+  {
+    n:'Raju Auto Works',      t:'Car & Bike Painting',
+    a:'College Square, Cuttack', ph:'94370 3455X', r:5,
+    tags:['Full Repaint','Dent Repair','2-Wheeler','Cars'], p:true, loc:'Cuttack',
+    img:'https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=600&q=70',
+  },
+  {
+    n:'Santosh Motor Garage',  t:'Automotive Body Shop',
+    a:'Badambadi, Cuttack',      ph:'98610 5423X', r:4,
+    tags:['Cars','SUVs','Insurance Work'], p:true, loc:'Cuttack',
+    img:'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=70',
+  },
+  {
+    n:'New Star Auto Painting', t:'Premium Car Refinishing',
+    a:'Nayapalli, BBSR',         ph:'76850 1234X', r:5,
+    tags:['Premium Finish','ASPA Certified'], p:true, loc:'BBSR',
+    img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=70',
+  },
+  {
+    n:'Kalinga Motor Works',   t:'General Auto Repair',
+    a:'Link Road, Cuttack',      ph:'91480 XXXXX', r:4,
+    tags:['Commercial Vehicles','Auto-Rickshaw'], p:false, loc:'Cuttack',
+    img:'https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=600&q=70',
+  },
+  {
+    n:'Jagannath Auto Repair', t:'Two-Wheeler Specialist',
+    a:'Buxi Bazar, Cuttack',     ph:'87580 XXXXX', r:4,
+    tags:['Bikes','Scooters','Touch-Up Work'], p:true, loc:'Cuttack',
+    img:'https://images.unsplash.com/photo-1558979158-65a1eaa08691?w=600&q=70',
+  },
+  {
+    n:'Modern Auto Body Shop', t:'Car Body Repair',
+    a:'Saheed Nagar, BBSR',      ph:'93380 XXXXX', r:3,
+    tags:['Accident Repair','Denting','Painting'], p:false, loc:'BBSR',
+    img:'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=600&q=70',
+  },
+];
+
+const GARAGE_TABS=['All','Cuttack','BBSR','Partners'];
+let activeGarageTab='All';
+
+function renderGarages(){
+  document.getElementById('garageTabs').innerHTML = GARAGE_TABS.map(tab=>{
+    let label=tab;
+    if(tab==='All')      label=currentLang==='od'?'ସବ':'All';
+    if(tab==='Partners') label=currentLang==='od'?'ପାର୍ଟନର':'Partners';
+    return `<button class="gtab${tab===activeGarageTab?' on':''}" onclick="filterGarages('${tab}')">${label}</button>`;
+  }).join('');
+
+  let list=GARAGES;
+  if(activeGarageTab==='Cuttack')  list=GARAGES.filter(g=>g.loc==='Cuttack');
+  if(activeGarageTab==='BBSR')     list=GARAGES.filter(g=>g.loc==='BBSR');
+  if(activeGarageTab==='Partners') list=GARAGES.filter(g=>g.p);
+
+  document.getElementById('garageList').innerHTML = list.map(g=>`
+    <div class="garage-card">
+      <div class="garage-img-wrap">
+        <img src="${g.img}" alt="${g.n}" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div style=height:180px;background:#1c2028;display:flex;align-items:center;justify-content:center;font-size:64px>🔧</div>'">
+        ${g.p?'<div class="garage-partner-badge">★ Silvercity Partner</div>':''}
+      </div>
+      <div class="garage-body">
+        <div class="garage-name">${g.n}</div>
+        <div class="garage-type">${g.t}</div>
+        <div class="stars">${[1,2,3,4,5].map(s=>`<span class="star ${s<=g.r?'on':'off'}">★</span>`).join('')}</div>
+        <div class="garage-meta">
+          <div class="gmeta-row">📍 ${g.a}</div>
+          <div class="gmeta-row">📞 ${g.ph}</div>
+        </div>
+        <div class="g-tags">${g.tags.map(t=>`<span class="g-tag">${t}</span>`).join('')}</div>
+        <div class="garage-btns">
+          <button class="g-btn call" onclick="window.open('tel:${g.ph}')">📞 Call</button>
+          <button class="g-btn dir"  onclick="window.open('https://maps.google.com/?q=${encodeURIComponent(g.a)}')">📍 Directions</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function filterGarages(tab){ activeGarageTab=tab; renderGarages(); }
+renderGarages();
+
+</script>
+</body>
+</html>
