@@ -5,7 +5,7 @@
 A complete, mobile‑friendly business website for **Silvercity Paints & Construction Solutions** – a one‑stop supplier of automotive paints, primers, sundries, and construction chemicals in Cuttack & Bhubaneswar, Odisha.
 
  ![Website Preview](https://raw.githubusercontent.com/mohammedsaqlain73/silvercitypaints/main/preview.jpg) 
-*(Replace with an actual screenshot from your live site)*
+
 
 ---
 
